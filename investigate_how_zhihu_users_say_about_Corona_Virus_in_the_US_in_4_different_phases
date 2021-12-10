@@ -1,0 +1,32 @@
+-- reset the stopwords --
+> w4<-read.csv("4w.csv",stringsAsFactors = FALSE)
+> View(eightythousand)
+> eightythousand<-eightythousand[,8]
+> View(eightythousand)
+> cutter<-worker(stop_word = "stop_words.txt",user = "user.txt")
+> list1<-segment(eightythousand,cutter)
+> View(list1)
+> filter<-c("没","已经","很多","想","更","说","真的","觉得","里","会","没有","中","说","一个","可能","日","做","10","例","其实","月","年","号","万","人数","20","中国","美国","现在","大概","小时”,”疫情“,”知道“,”目前”,”不会”,”应该”，“情况”，“需要”，“看到”，“出现”，“不”，“这种”，“今”，)
+> list1<-filter_segment(list1,filter)
+> result1<-freq(list1)
+> result1<-result1[order(result1$freq,decreasing = TRUE),]
+> View(result1)
+> result1<-subset(result1,freq>=20)
+> write.csv(result1,file = "8wfrequency.csv",row.names = FALSE)
+> write.table(list1,file = "highlikes_words",row.names = FALSE,quote = FALSE,col.names = FALSE)
+
+> read.csv("4wfrequency.csv",stringsAsFactors = FALSE)
+
+> million<-read.csv("100w.csv",stringsAsFactors = FALSE)
+> million<-subset(million,million$赞同数>=1000)
+> write.csv(million,file = "100w_highlike.csv",row.names = FALSE)
+
+> w4<-read.csv("4w.csv",stringsAsFactors = FALSE)
+> w4<-w4[,8]
+> cutter<-worker(stop_word = "stop_words.txt",user = "user.txt")
+> list1<-segment(w4,cutter)
+> result1<-freq(list1)
+> result1<-result1[order(result1$freq,decreasing = TRUE),]
+> result1<-subset(result1,freq>=20)
+> write.csv(result1,file = "4wfreq.csv",row.names = FALSE)
+> write.table(list1,file = "4w_words",row.names = FALSE,quote = FALSE,col.names = FALSE)
