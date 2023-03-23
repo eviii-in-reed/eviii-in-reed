@@ -1,7 +1,6 @@
-- 👋 Hi, I’m @eviii-in-reed
+- 👋 Hi, I’m Wei Lu
 - 👀 I’m interested in programming, digital painting, skiing and archery
 - 🌱 I’m currently learning SQL and Python
-- 📫 My email adress is luna.wei.lu@gmail.com
 
 <!---
 eviii-in-reed/eviii-in-reed is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
